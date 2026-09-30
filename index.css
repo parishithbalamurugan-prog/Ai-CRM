@@ -1,0 +1,154 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global Styles */
+:root {
+  --primary-color: #4b41e1;
+  --danger-color: #ba1a1a;
+  --success-color: #16a34a;
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-600: #4b5563;
+  --gray-900: #111827;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Smooth transitions */
+@layer components {
+  .btn-primary {
+    @apply bg-blue-600 text-white px-4 py-2 rounded-lg font-medium transition-colors hover:bg-blue-700;
+  }
+
+  .btn-secondary {
+    @apply bg-blue-50 text-gray-900 px-4 py-2 rounded-lg font-medium transition-colors hover:bg-blue-100;
+  }
+
+  .badge-danger {
+    @apply bg-red-100 text-red-700 px-2 py-1 rounded-full text-xs font-semibold;
+  }
+
+  .badge-success {
+    @apply bg-green-100 text-green-700 px-2 py-1 rounded-full text-xs font-semibold;
+  }
+
+  .badge-info {
+    @apply bg-blue-100 text-blue-700 px-2 py-1 rounded-full text-xs font-semibold;
+  }
+
+  .card {
+    @apply bg-white rounded-xl shadow-sm border border-gray-100 p-4;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.4s ease-out;
+}
+
+/* Responsive Typography */
+@layer components {
+  .heading-1 {
+    @apply text-4xl font-bold leading-tight;
+  }
+
+  .heading-2 {
+    @apply text-2xl font-semibold leading-tight;
+  }
+
+  .heading-3 {
+    @apply text-xl font-semibold;
+  }
+
+  .text-sm-light {
+    @apply text-sm font-light text-gray-600;
+  }
+
+  .text-xs-light {
+    @apply text-xs font-light text-gray-500;
+  }
+}
+
+/* Utility Classes */
+.flex-center {
+  @apply flex items-center justify-center;
+}
+
+.flex-between {
+  @apply flex items-center justify-between;
+}
+
+.grid-responsive {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4;
+}
+
+.transition-smooth {
+  @apply transition-all duration-200 ease-in-out;
+}
+
+.shadow-soft {
+  @apply shadow-sm hover:shadow-md transition-shadow;
+}
